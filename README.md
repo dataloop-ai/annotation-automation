@@ -2,9 +2,15 @@
 
 Dataloop FaaS example for functions that performs automations on items and annotations.
 
+## Download package artifacts
+
+You need to download the artifacts of this package from:
+https://storage.googleapis.com/dtlpy/model_assets/annotation-package/artifacts.zip
+
 ## SDK Installation
 
 You need to have dtlpy installed, if don't already, install it by running:
+
 
 ```bash
 pip install dtlpy --upgrade
