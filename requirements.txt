@@ -1,0 +1,14 @@
+torch
+tqdm
+matplotlib
+numpy
+PIL
+tensorflow
+cv2
+keras==2.1.6
+dtlpy
+tensorflow-gpu==1.9.0
+imgaug==0.2.8
+https://download.pytorch.org/whl/cu90/torch-1.1.0-cp35-cp35m-win_amd64.whl
+scipy
+scikit-image
