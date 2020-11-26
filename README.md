@@ -5,7 +5,7 @@ Dataloop FaaS example for functions that performs automations on items and annot
 ## Download package artifacts
 
 You need to download the artifacts of this package from:
-https://storage.googleapis.com/dtlpy/model_assets/annotation-package/artifacts.zip
+https://storage.googleapis.com/dtlpy/model_assets/automation-package/artifacts.zip
 
 ## SDK Installation
 
@@ -44,7 +44,8 @@ project = dl.projects.get(project_name=project_name)
 modules = [
     dl.PackageModule(
         init_inputs=[
-            dl.FunctionIO(type='Json', name='project_name')
+            dl.FunctionIO(type='Json', name='project_name'),
+            dl.FunctionIO(type='Json', name='package_name')
         ],
         name='default',
         entry_point='main.py',
@@ -107,7 +108,8 @@ service = package.services.deploy(service_name=package.name,
                                           'gcr.io/viewo-g/piper/agent/runner/gpu/box2seg-dextr-maskrcnn:latest'
                                   },
                                   module_name='default',
-                                  init_input={'project_name': project.name}
+                                  init_input={'project_name': project.name,
+                                              'package_name': package_name}
                                   )
 ```
 
