@@ -1,0 +1,72 @@
+{
+  "modules": [
+    {
+      "name": "default",
+      "entryPoint": "main.py",
+      "initInputs": [
+        {
+          "type": "Json",
+          "name": "package_name"
+        },
+        {
+          "type": "Json",
+          "name": "project_name"
+        }
+      ],
+      "functions": [
+        {
+          "name": "bbox_to_segmentation",
+          "description": "Converts a bounding box into a segmentation",
+          "input": [
+            {
+              "type": "Item",
+              "name": "item"
+            },
+            {
+              "type": "Json",
+              "name": "annotation"
+            },
+            {
+              "type": "Json",
+              "name": "config"
+            }
+          ]
+        },
+        {
+          "name": "four_points_to_segmentation",
+          "description": "Converts a four points closed polygon into a segmentation",
+          "input": [
+            {
+              "type": "Item",
+              "name": "item"
+            },
+            {
+              "type": "Json",
+              "name": "annotation"
+            },
+            {
+              "type": "Json",
+              "name": "config"
+            }
+          ]
+        },
+        {
+          "name": "item_auto_annotation_automation",
+          "description": "Auto annotate a platform item using maskrcnn",
+          "input": [
+            {
+              "type": "Item",
+              "name": "item"
+            },
+            {
+              "type": "Json",
+              "name": "config"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "outputs": [],
+  "name": "annotation-automation"
+}

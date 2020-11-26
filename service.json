@@ -1,0 +1,15 @@
+{
+  "name": "annotation-automation",
+  "packageName": "annotation-automation",
+  "packageRevision": "latest",
+  "runtime": {
+    "numReplicas": 1,
+    "concurrency": 5,
+    "podType": "gpu-k80-s",
+    "runnerImage": "gcr.io/viewo-g/piper/agent/runner/gpu/box2seg-dextr-maskrcnn:latest"
+  },
+  "initParams": {
+    "project_name": "My project"
+  },
+  "moduleName": "default"
+}
