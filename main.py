@@ -56,17 +56,20 @@ class ServiceRunner(dl.BaseServiceRunner):
 
         :param progress:
         :param item: dl.Item
-        :param annotations: list of annotations dict
+        :param annotations: list of annotations ids
         :param config: optional - dictionary
         :return:
         """
         progress.logger.info('updating progress')
         progress.update(message='started dextr')
         progress.logger.info('started dextr')
-        return self.four_points_to_segmentation_handler.run(progress=progress,
-                                                            item=item,
-                                                            config=config,
-                                                            annotations=annotations)
+        self.four_points_to_segmentation_handler.run(
+            progress=progress,
+            item=item,
+            config=config,
+            annotations=self._parse_annotations_input(annotations=annotations)
+        )
+        self._delete_original_annotations(annotations=annotations)
 
     def bbox_to_segmentation(self, progress, item, annotations, config=None):
         """
@@ -74,14 +77,25 @@ class ServiceRunner(dl.BaseServiceRunner):
 
         :param progress:
         :param item: dl.Item
-        :param annotations: list of annotations dict
+        :param annotations: list of annotation id
         :param config: optional - dictionary
         :return:
         """
         progress.logger.info('updating progress')
         progress.update(message='started box2seg')
         progress.logger.info('started box2seg')
-        return self.bbox_to_segmentation_handler.run(progress=progress,
-                                                     item=item,
-                                                     config=config,
-                                                     annotations=annotations)
+        self.bbox_to_segmentation_handler.run(
+            progress=progress,
+            item=item,
+            config=config,
+            annotations=self._parse_annotations_input(annotations=annotations)
+        )
+        self._delete_original_annotations(annotations=annotations)
+
+    @staticmethod
+    def _parse_annotations_input(annotations: str):
+        return [dl.annotations.get(annotation_id=ann_id).to_json() for ann_id in annotations.split(',')]
+
+    @staticmethod
+    def _delete_original_annotations(annotations: str):
+        [dl.annotations.delete(annotation_id=ann_id) for ann_id in annotations.split(',')]

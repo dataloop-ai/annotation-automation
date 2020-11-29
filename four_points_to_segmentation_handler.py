@@ -136,7 +136,7 @@ class FourPointToSegmentationHandler:
             for annotation in annotations:
                 attributes = annotation['attributes']
                 label = annotation['label']
-                coordinates = annotation['coordinates']
+                coordinates = annotation['coordinates'][0]
 
                 progress.logger.info('annotation {}/{}'.format(count, len(annotations)))
 

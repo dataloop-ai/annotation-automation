@@ -51,13 +51,13 @@ package = project.packages.push(package_name=package_name, modules=modules)
 ####################
 # upload artifacts #
 ####################
-project.artifacts.upload(filepath='/path_to_weights/dextr_pascal-sbd.h5',
+project.artifacts.upload(filepath='weights/dextr_pascal-sbd.h5',
                          package_name=package_name)
-project.artifacts.upload(filepath='/path_to_weights/mask_rcnn_coco.h5',
+project.artifacts.upload(filepath='weights/mask_rcnn_coco.h5',
                          package_name=package_name)
-project.artifacts.upload(filepath='/path_to_points/SiamMask_DAVIS.pth',
+project.artifacts.upload(filepath='weights/SiamMask_DAVIS.pth',
                          package_name=package_name)
-project.artifacts.upload(filepath='/path_to_points/cityscapes_checkpoint.pt',
+project.artifacts.upload(filepath='weights/cityscapes_checkpoint.pt',
                          package_name=package_name)
 
 ##################
