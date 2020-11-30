@@ -289,7 +289,7 @@ class BBoxToSegmentationHandler:
         if config is None:
             config = {}
         if 'return_type' not in config:
-            config['return_type'] = 'segment'
+            config['return_type'] = 'binary'
 
         if config['return_type'] not in ['segment', 'binary']:
             raise ValueError('unknown return type: {}'.format(config['return_type']))
