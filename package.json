@@ -1,7 +1,7 @@
 {
   "modules": [
     {
-      "name": "default",
+      "name": "default_module",
       "entryPoint": "main.py",
       "initInputs": [
         {
